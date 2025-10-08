@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nexiicx — Неоновый Профиль</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <meta name="description" content="Горизонтальная визитка Nexiicx — эффектный дизайн для GitHub Pages" />
+  <style>
+    :root{
+      --bg:#0a0a0a; --card:#111; --muted:#aaaaaa; --accent1:#ff00ff; --accent2:#00ffff;
+      --radius:20px; font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;background:linear-gradient(135deg,#0a0a0a,#1a1a1a);color:#fff;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden;}
+
+    body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 30%, #ff00ff11, transparent 30%), radial-gradient(circle at 70% 70%, #00ffff11, transparent 30%);filter:blur(150px);z-index:0;}
+
+    .card{
+      position:relative;
+      background:linear-gradient(135deg,#111,#222);
+      border-radius:var(--radius);
+      padding:40px 40px;
+      display:flex;
+      flex-direction:row;
+      align-items:center;
+      width:1050px;
+      max-width:95%;
+      box-shadow:0 0 30px #ff00ff33, 0 0 30px #00ffff33;
+      border:1px solid #333;
+      overflow:hidden;
+      z-index:1;
+    }
+
+    .avatar{
+      width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,#ff00ff,#00ffff);
+      display:grid;place-items:center;overflow:hidden;margin-right:50px;
+      box-shadow:0 0 30px #ff00ff44,0 0 30px #00ffff44;
+      border:4px solid #fff;
+      transition:transform 0.3s;
+      flex-shrink:0;
+    }
+    .avatar:hover{transform:scale(1.1) rotate(5deg)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:none}
+    .initial{font-weight:900;font-size:80px;color:#fff;text-shadow:0 0 10px #ff00ff,0 0 10px #00ffff}
+
+    .info{
+      flex:1; display:flex; flex-direction:column; align-items:flex-start;
+    }
+
+    .nick{font-size:46px;font-weight:900;color:#fff;text-shadow:0 0 5px #00ffff,0 0 5px #ff00ff;margin-bottom:10px}
+    .dev-badge{background:linear-gradient(90deg,#ff00ff,#00ffff);color:#000;font-weight:800;padding:10px 26px;border-radius:50px;font-size:16px;text-shadow:0 0 2px #000;margin-bottom:10px}
+    .slogan{color:var(--muted);font-size:15px;margin-bottom:20px;text-shadow:0 0 2px #000}
+
+    .divider{height:2px;width:100%;background:linear-gradient(90deg,#ff00ff,#00ffff);margin:15px 0;border-radius:2px;box-shadow:0 0 5px #ff00ff,0 0 5px #00ffff}
+
+    .date-box{font-weight:700;font-size:18px;color:#fff;margin-bottom:20px;text-shadow:0 0 4px #ff00ff,0 0 4px #00ffff;letter-spacing:0.5px}
+    .date-box span{color:#ff00ff;margin:0 8px}
+
+    .links{display:flex;gap:16px;margin-top:10px;flex-wrap:nowrap;justify-content:flex-start}
+
+    .link{display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:20px;background:linear-gradient(135deg,#ff00ff,#00ffff);color:#000;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.3s, box-shadow 0.3s;box-shadow:0 0 15px #ff00ff33,0 0 15px #00ffff33;flex-shrink:0}
+    .link:hover{transform:scale(1.05);box-shadow:0 0 25px #ff00ffaa,0 0 25px #00ffffaa}
+    .link .ico{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,0.2);color:#000;font-weight:900;text-shadow:0 0 2px #000}
+    .link-text{flex:1;text-align:left}
+
+    footer.small-note{margin-top:25px;color:var(--muted);font-size:13px;text-shadow:0 0 2px #000;align-self:center}
+
+    @media(max-width:960px){.card{flex-direction:column;align-items:center}.avatar{margin-right:0;margin-bottom:25px}.info{align-items:center;text-align:center}.links{flex-direction:row;flex-wrap:wrap;justify-content:center}}  
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="avatar">
+      <img id="avatarImg" src="" alt="avatar" />
+      <div class="initial" id="initial">N</div>
+    </div>
+    <div class="info">
+      <div class="nick">Nexiicx</div>
+      <div class="dev-badge">DEV</div>
+      <div class="slogan">Разработка • Frontend / Backend / Tools</div>
+
+      <div class="divider"></div>
+
+      <div class="date-box" id="birthDisplay">04.02 <span>//</span> 12 y.o</div>
+
+      <div class="links">
+        <a class="link" href="https://discord.gg/your-handle">
+          <div class="ico">D</div>
+          <div class="link-text">Discord</div>
+        </a>
+        <a class="link" href="https://t.me/Nexiicx">
+          <div class="ico">TG</div>
+          <div class="link-text">Telegram</div>
+        </a>
+        <a class="link" href="https://anonym.link/your">
+          <div class="ico">AN</div>
+          <div class="link-text">Анонимка</div>
+        </a>
+        <a class="link" href="https://github.com/Nexiicx">
+          <div class="ico">GH</div>
+          <div class="link-text">GitHub</div>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <footer class="small-note">Горизонтальная неоновая визитка для GitHub Pages</footer>
+    </div>
+  </div>
+
+  <script>
+    // Авто-показ аватара
+    const img = document.getElementById('avatarImg');
+    const initial = document.getElementById('initial');
+    img.src = 'avatar.png';
+    img.onload = ()=>{initial.style.display='none';img.style.display='block';}
+  </script>
+</body>
+</html>
